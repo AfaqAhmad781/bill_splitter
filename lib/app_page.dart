@@ -62,7 +62,7 @@ class _AppPageState extends State<AppPage> {
                   SizedBox(height: 20),
                   Container(
                     width: double.infinity,
-                    height: 250,
+                    // height: 250,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [Color(0xFF4F75FF), Color(0xFF9A78FA)],
@@ -103,69 +103,65 @@ class _AppPageState extends State<AppPage> {
                             thickness: 3,
                             height: 20,
                           ),
-                          IntrinsicHeight(
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Total Bill',
-                                        style: TextStyle(
-                                          color: Colors.white70,
-                                          fontSize: 20,
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      'Total Bill',
+                                      style: TextStyle(
+                                        color: Colors.white70,
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                    FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: Text(
+                                        'Rs ${_totalBill.toStringAsFixed(2)}',
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      FittedBox(
-                                        fit: BoxFit.scaleDown,
-                                        child: Text(
-                                          'Rs ${_totalBill.toStringAsFixed(2)}',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 30,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                                VerticalDivider(
-                                  color: Colors.white30,
-                                  thickness: 3,
-                                  width: 20,
-                                  indent: 0, // Adds spacing at the top
-                                  endIndent: 0, // Adds spacing at the bottom
-                                ),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Text(
-                                        'Tip',
-                                        style: TextStyle(
-                                          color: Colors.white70,
-                                          fontSize: 20,
+                              ),
+                              // Clean vertical line replacement for VerticalDivider
+                              Container(
+                                height: 40,
+                                width: 2,
+                                color: Colors.white30,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    const Text(
+                                      'Tip',
+                                      style: TextStyle(
+                                        color: Colors.white70,
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                    FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: Text(
+                                        'Rs ${_tipAmount.toStringAsFixed(2)}',
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      FittedBox(
-                                        fit: BoxFit.scaleDown,
-                                        child: Text(
-                                          'Rs ${_tipAmount.toStringAsFixed(2)}',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 30,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -241,9 +237,7 @@ class _AppPageState extends State<AppPage> {
                               width: 55,
                               decoration: BoxDecoration(
                                 color: _tipPercentage == 10.0
-                                    ? const Color(
-                                        0xFF7C4DFF,
-                                      )
+                                    ? const Color(0xFF7C4DFF)
                                     : const Color(0xFFEBECEF),
                                 borderRadius: BorderRadius.circular(10),
                                 boxShadow: [
@@ -276,9 +270,7 @@ class _AppPageState extends State<AppPage> {
                               width: 55,
                               decoration: BoxDecoration(
                                 color: _tipPercentage == 15.0
-                                    ? const Color(
-                                        0xFF7C4DFF,
-                                      )
+                                    ? const Color(0xFF7C4DFF)
                                     : const Color(0xFFEBECEF),
                                 borderRadius: BorderRadius.circular(10),
                                 boxShadow: [
@@ -311,9 +303,7 @@ class _AppPageState extends State<AppPage> {
                               width: 55,
                               decoration: BoxDecoration(
                                 color: _tipPercentage == 20.0
-                                    ? const Color(
-                                        0xFF7C4DFF,
-                                      )
+                                    ? const Color(0xFF7C4DFF)
                                     : const Color(0xFFEBECEF),
                                 borderRadius: BorderRadius.circular(10),
                                 boxShadow: [
@@ -346,9 +336,7 @@ class _AppPageState extends State<AppPage> {
                               width: 55,
                               decoration: BoxDecoration(
                                 color: _tipPercentage == 25.0
-                                    ? const Color(
-                                        0xFF7C4DFF,
-                                      )
+                                    ? const Color(0xFF7C4DFF)
                                     : const Color(0xFFEBECEF),
                                 borderRadius: BorderRadius.circular(10),
                                 boxShadow: [
@@ -383,7 +371,9 @@ class _AppPageState extends State<AppPage> {
                             enabledThumbRadius: 12,
                             elevation: 4,
                           ),
-                          overlayColor: const Color(0xFF7C4DFF).withOpacity(0.12),
+                          overlayColor: const Color(
+                            0xFF7C4DFF,
+                          ).withOpacity(0.12),
                         ),
                         child: Slider(
                           value: _tipPercentage,
