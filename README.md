@@ -50,7 +50,7 @@ Prerequisites: Make sure you have the Flutter SDK installed.
 
 Clone the repository:
 
-git clone https://github.com/your-username/split-and-tip-calculator.git
+git clone https://github.com/AfaqAhmad781/bill_splitter.git
 
 
 Navigate to project directory:
